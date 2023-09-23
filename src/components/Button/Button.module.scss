@@ -1,0 +1,86 @@
+.wrapper {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.6rem;
+   font-weight: 700;
+   min-width: 100px;
+   padding: 9px 16px;
+   border-radius: 4px;
+   cursor: pointer;
+   user-select: none;
+
+   + .wrapper {
+      margin-left: 16px;
+   }
+
+   &.disabled {
+      cursor: default;
+      opacity: 0.5;
+   }
+}
+
+.icon {
+   font-size: 18px;
+}
+
+.icon + .title, .title + .icon {
+   margin-left: 8px;
+}
+
+.rounded {
+   border: 1px solid transparent;
+
+   background-color: var(--white);
+   border-radius: 99px;
+   box-shadow: 0 0 4px rgba(22, 24, 35, 0.2);
+
+   &:hover {
+      border-color: rgba(22, 24, 35, 0.2);
+   }
+}
+
+.primary {
+   color: var(--white);
+   background-color: var(--primary-color);
+
+   &:hover {
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), rgb(254, 44, 85);
+   }
+}
+
+.outline {
+   color: var(--primary-color);
+   border: 1px solid currentColor;
+
+   &:hover {
+      border: 1px solid currentColor;
+      background-color: rgba(254, 44, 85, 0.08);
+   }
+}
+
+.text {
+   border: 1px solid rgba(22, 24, 35, 0.12);
+   color: rgba(22, 24, 35, 1);
+
+   &:hover {
+      background-color: rgba(22, 24, 35, 0.03);
+   }
+
+   svg {
+      margin-right: 8px;
+   }
+}
+
+// Disable button
+
+// Button size
+.small {
+   min-width: 88px;
+   padding: 4px 16px;
+}
+
+.large {
+   min-width: 140px;
+   padding: 14px 16px;
+}
