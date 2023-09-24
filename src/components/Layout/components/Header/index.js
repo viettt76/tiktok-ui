@@ -2,13 +2,43 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+   faCircleXmark,
+   faSpinner,
+   faMagnifyingGlass,
+   faPlus,
+   faEllipsisVertical,
+   faEarthAsia,
+} from '@fortawesome/free-solid-svg-icons';
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccoutItem from '~/components/AccountItem';
+import AccountItem from '~/components/AccountItem';
+import Menu from '~/components/Layout/Menu';
+import { faCircleQuestion, faKeyboard, faLightbulb } from '@fortawesome/free-regular-svg-icons';
+
+const MENU_ITEMS = [
+   {
+      icon: <FontAwesomeIcon icon={faLightbulb} />,
+      title: 'Trung tâm Nhà sáng tạo LIVE',
+      to: '/live/creators',
+   },
+   {
+      icon: <FontAwesomeIcon icon={faEarthAsia} />,
+      title: 'Tiếng Việt',
+   },
+   {
+      icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+      title: 'Phản hồi và trợ giúp',
+      to: 'feedback',
+   },
+   {
+      icon: <FontAwesomeIcon icon={faKeyboard} />,
+      title: 'Phím tắt trên bàn phím',
+   },
+]
 
 function Header() {
    const [searchResult, setSearchResult] = useState([]);
@@ -17,7 +47,7 @@ function Header() {
       setTimeout(() => {
          setSearchResult([]);
       }, 0);
-   }, searchResult);
+   }, []);
 
    return (
       <header className={styles.wrapper}>
@@ -30,10 +60,10 @@ function Header() {
                   <div className={styles.searchResult} tabIndex="-1" {...attrs}>
                      <PopperWrapper>
                         <h4 className={clsx(styles.searchTitle)}>Tài khoản</h4>
-                        <AccoutItem />
-                        <AccoutItem />
-                        <AccoutItem />
-                        <AccoutItem />
+                        <AccountItem />
+                        <AccountItem />
+                        <AccountItem />
+                        <AccountItem />
                      </PopperWrapper>
                   </div>
                )}
@@ -54,7 +84,15 @@ function Header() {
                   <span>Tải lên</span>
                </Button>
 
-               <Button primary>Đăng nhập</Button>
+               <Button primary >Đăng nhập</Button>
+
+               <Menu
+                  items={MENU_ITEMS}
+               >
+                  <button className={clsx(styles.menuExpandIcon)} >
+                     <FontAwesomeIcon icon={faEllipsisVertical} />
+                  </button>
+               </Menu>
             </div>
          </div>
       </header>

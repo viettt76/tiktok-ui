@@ -9,6 +9,7 @@
    border-radius: 4px;
    cursor: pointer;
    user-select: none;
+   background-color: var(--white);
 
    + .wrapper {
       margin-left: 16px;
@@ -21,7 +22,10 @@
 }
 
 .icon {
+   display: block;
+   text-align: center;
    font-size: 18px;
+   width: 23px;
 }
 
 .icon + .title, .title + .icon {
@@ -66,15 +70,13 @@
    &:hover {
       background-color: rgba(22, 24, 35, 0.03);
    }
-
-   svg {
-      margin-right: 8px;
-   }
 }
 
-// Disable button
-
 // Button size
+
+/*
+   Bug: đặt button class outline và outline không ăn
+*/
 .small {
    min-width: 88px;
    padding: 4px 16px;

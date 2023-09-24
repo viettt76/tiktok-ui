@@ -42,7 +42,6 @@ function Button({
       Comp = 'a';
    }
 
-   console.log(className);
    const classes = clsx(styles.wrapper, {
       [className]: className,
       [styles.primary]: primary,

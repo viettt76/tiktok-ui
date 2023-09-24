@@ -1,10 +1,10 @@
 import clsx from 'clsx';
-import styles from './AccoutItem.module.scss';
+import styles from './AccountItem.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faEllipsis, faHeartCrack } from '@fortawesome/free-solid-svg-icons';
 import { faFlag } from '@fortawesome/free-regular-svg-icons';
 
-function AccoutItem() {
+function AccountItem() {
    return (
       <div className={clsx(styles.wrapper)}>
          <img
@@ -37,4 +37,4 @@ function AccoutItem() {
    );
 }
 
-export default AccoutItem;
+export default AccountItem;
