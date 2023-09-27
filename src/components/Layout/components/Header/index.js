@@ -6,9 +6,7 @@ import 'tippy.js/dist/tippy.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-   faCircleXmark,
    faSpinner,
-   faMagnifyingGlass,
    faPlus,
    faEllipsisVertical,
    faEarthAsia,
@@ -16,22 +14,16 @@ import {
    faCoins,
    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-   faBookmark,
-   faCircleQuestion,
-   faKeyboard,
-   faLightbulb,
-   faMessage,
-   faPaperPlane,
-   faUser,
-} from '@fortawesome/free-regular-svg-icons';
+import { faBookmark, faCircleQuestion, faKeyboard, faLightbulb, faUser } from '@fortawesome/free-regular-svg-icons';
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
-import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import Logo from '~/assets/logo';
+import { MailBoxIcon, MessageIcon, SearchIcon, ClearIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const MENU_ITEMS = [
    {
@@ -116,14 +108,16 @@ function Header() {
          icon: <FontAwesomeIcon icon={faSignOut} />,
          title: 'Đăng xuất',
          to: '/logout',
-         separate: true
+         separate: true,
       },
-   ]
+   ];
 
    return (
       <header className={styles.wrapper}>
          <div className={styles.content}>
-            <img src={images.logo} alt="TikTok" />
+            <Logo />
+
+            {/* Search */}
             <HeadlessTippy
                interactive
                visible={searchResult.length > 0}
@@ -142,14 +136,16 @@ function Header() {
                <div className={styles.search}>
                   <input placeholder="Tìm kiếm" />
                   <button className={styles.clear}>
-                     <FontAwesomeIcon icon={faCircleXmark} />
+                     <ClearIcon />
                   </button>
                   <FontAwesomeIcon className={styles.loading} icon={faSpinner} />
                   <button className={styles['search-btn']}>
-                     <FontAwesomeIcon icon={faMagnifyingGlass} />
+                     <SearchIcon />
                   </button>
                </div>
             </HeadlessTippy>
+
+            {/* Action */}
             <div className={styles.action}>
                <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                   <span>Tải lên</span>
@@ -157,23 +153,18 @@ function Header() {
 
                {currentUser ? (
                   <>
-                     <Tippy
-                        interactive
-                        content='Tin nhắn'
-                        placement='bottom'
-                     >
+                     <Tippy interactive content="Tin nhắn" placement="bottom">
                         <button className={clsx(styles.actionBtn)}>
-                           <FontAwesomeIcon icon={faPaperPlane} />
+                           <MessageIcon />
                         </button>
                      </Tippy>
 
-                     <Tippy
-                        interactive
-                        content='Hộp thư'
-                        placement='bottom'
-                     >
+                     <Tippy interactive content="Hộp thư" placement="bottom">
                         <button className={clsx(styles.actionBtn)}>
-                           <FontAwesomeIcon icon={faMessage} />
+                           <div className={clsx(styles.wrapBtn)}>
+                              <MailBoxIcon />
+                              <span className={clsx(styles.numOfNotify)}>1</span>
+                           </div>
                         </button>
                      </Tippy>
                   </>
@@ -183,8 +174,8 @@ function Header() {
 
                <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleChangeMenu}>
                   {currentUser ? (
-                     <img
-                        src="https://p9-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/7281562541422182418.jpeg?x-expires=1695960000&x-signature=TvrqQSmDMe%2F7%2BOUv6QO6NpL1Q48%3D"
+                     <Image
+                        src="https://p16-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/751d9281c7f18830a694812b0643f720.jpeg?x-expires=1695981600&x-signature=aDPnJDKxj1oyNduaxArB9PswNUw%3D"
                         className={clsx(styles.userAvatar)}
                         alt="Đào Lê Phương Hoa"
                      />
