@@ -2,43 +2,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 :root {
-    --primary-color: #fe2c55;
-    --black: #000;
-    --white: #fff;
-    --text-color: #333;
+   --primary-color: #fe2c55;
+   --black: #000;
+   --white: #fff;
+   --text-color: #161823;
 
-    --default-layout-header-height: 60px;
+   --default-layout-header-height: 60px;
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
 }
 
 html {
-    font-size: 62.5%;
+   font-size: 62.5%;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.6rem;
-    min-height: 100vh;
-    text-rendering: optimizeSpeed;
-    line-height: 1.5;
-    color: var(--text-color);
+   font-family: 'Poppins', sans-serif;
+   font-size: 1.6rem;
+   min-height: 100vh;
+   text-rendering: optimizeSpeed;
+   line-height: 1.5;
+   color: var(--text-color);
 }
 
-button, input, [tabindex] {
-    border: none;
-    outline: none;
+button,
+input,
+[tabindex] {
+   border: none;
+   outline: none;
 }
 
 a[href] {
-    color: var(--text-color);
-    text-decoration: none;
+   color: var(--text-color);
+   text-decoration: none;
 }
 
 ul {
-    list-style: none;
+   list-style: none;
+}
+
+body {
+   .tippy-box {
+      font-weight: 600;
+      background-color: rgba(84, 84, 84, 0.92);
+      border-radius: 8px;
+      font-size: 1.6rem;
+      line-height: 2.2rem;
+      padding: 3px 0;
+   }
+
+   .tippy-arrow {
+    color: rgba(84, 84, 84, 0.92);
+   }
 }
