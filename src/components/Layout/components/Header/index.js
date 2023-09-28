@@ -1,29 +1,18 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
-import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-   faSpinner,
-   faPlus,
-   faEllipsisVertical,
-   faEarthAsia,
-   faGear,
-   faCoins,
-   faSignOut,
-} from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faEllipsisVertical, faEarthAsia, faGear, faCoins, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark, faCircleQuestion, faKeyboard, faLightbulb, faUser } from '@fortawesome/free-regular-svg-icons';
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
 import Logo from '~/assets/logo';
-import { MailBoxIcon, MessageIcon, SearchIcon, ClearIcon } from '~/components/Icons';
+import { MailBoxIcon, MessageIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Search from '../Search';
 
 const MENU_ITEMS = [
    {
@@ -63,14 +52,6 @@ const MENU_ITEMS = [
 
 function Header() {
    let currentUser = true;
-
-   const [searchResult, setSearchResult] = useState([]);
-
-   useEffect(() => {
-      setTimeout(() => {
-         setSearchResult([]);
-      }, 0);
-   }, []);
 
    // Handle logic
    const handleChangeMenu = (item) => {
@@ -115,37 +96,12 @@ function Header() {
    return (
       <header className={styles.wrapper}>
          <div className={styles.content}>
-            <Logo />
+            <Button to={'/'}>
+               <Logo />
+            </Button>
 
-            {/* Search */}
-            <HeadlessTippy
-               interactive
-               visible={searchResult.length > 0}
-               render={(attrs) => (
-                  <div className={styles.searchResult} tabIndex="-1" {...attrs}>
-                     <PopperWrapper>
-                        <h4 className={clsx(styles.searchTitle)}>Tài khoản</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                     </PopperWrapper>
-                  </div>
-               )}
-            >
-               <div className={styles.search}>
-                  <input placeholder="Tìm kiếm" />
-                  <button className={styles.clear}>
-                     <ClearIcon />
-                  </button>
-                  <FontAwesomeIcon className={styles.loading} icon={faSpinner} />
-                  <button className={styles['search-btn']}>
-                     <SearchIcon />
-                  </button>
-               </div>
-            </HeadlessTippy>
+            <Search />
 
-            {/* Action */}
             <div className={styles.action}>
                <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                   <span>Tải lên</span>
