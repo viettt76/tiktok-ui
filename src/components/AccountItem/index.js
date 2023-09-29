@@ -8,7 +8,7 @@ import Image from '../Image';
 
 function AccountItem({ data }) {
    return (
-      <Link className={clsx(styles.wrapper)} to={`/${data.nickname}`}>
+      <Link className={clsx(styles.wrapper)} to={`/@${data.nickname}`}>
          <Image className={clsx(styles.avatar)} src={data.avatar} alt={data.full_name} />
          <div className={clsx(styles.info)}>
             <p className={clsx(styles.name)}>

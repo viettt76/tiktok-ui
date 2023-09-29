@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faEllipsisVertical, faEarthAsia, faGear, faCoins, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark, faCircleQuestion, faKeyboard, faLightbulb, faUser } from '@fortawesome/free-regular-svg-icons';
+import config from '~/config'
 
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
@@ -26,6 +27,96 @@ const MENU_ITEMS = [
       children: {
          title: 'Ngôn ngữ',
          data: [
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
+            {
+               type: 'language',
+               code: 'vi',
+               title: 'Tiếng Việt',
+            },
+            {
+               type: 'language',
+               code: 'en',
+               title: 'English',
+            },
             {
                type: 'language',
                code: 'vi',
@@ -96,9 +187,9 @@ function Header() {
    return (
       <header className={styles.wrapper}>
          <div className={styles.content}>
-            <Button to={'/'}>
+            <Link to={config.routes.home} className={styles.logoLink}>
                <Logo />
-            </Button>
+            </Link>
 
             <Search />
 

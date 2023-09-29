@@ -27,7 +27,7 @@
    justify-content: start;
    width: 100%;
    border-radius: 0;
-   padding: 7px 16px;
+   padding: 8px 16px;
    line-height: 1.5;
 
    &:hover {
@@ -39,10 +39,15 @@
    border-top: 1px solid rgba(22, 24, 35, 0.12);
 }
 
+.menuBody {
+   overflow: auto;
+}
+
 // Header
 .header {
    position: relative;
    display: flex;
+   flex-shrink: 0;
    justify-content: center;
    align-items: center;
    height: 50px;
